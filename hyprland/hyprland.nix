@@ -82,9 +82,9 @@ in
       ];
 
       exec-once = [
-        "uwsm app -- waybar"
-        "uwsm app -- hyprpaper"
-        "uwsm app -- hypridle"
+        "waybar"
+        "hyprpaper"
+        "hypridle"
       ];
 
       general = {
