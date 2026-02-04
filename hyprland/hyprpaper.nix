@@ -23,7 +23,7 @@ let
   monitors = monitorConfigs.${hostname} or monitorConfigs.default;
   
   # Function to make list of strings "monitor,wallpaperPath" for each monitor
-  mkWallpaperList = monitors: path: builtins.map (m: "${m},${path}") monitors;
+  mkWallpaperList = monitors: path: builtins.map (m: "${m}, ${path}") monitors;
 in
 {
   services.hyprpaper = {

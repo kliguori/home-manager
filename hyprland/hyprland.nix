@@ -83,7 +83,7 @@ in
 
       exec-once = [
         "waybar"
-        "hyprpaper"
+        # "hyprpaper"
         "hypridle"
       ];
 
