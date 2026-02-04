@@ -1,6 +1,6 @@
 { config, lib, pkgs, hostname, username, ... }:
 let
-  wallpaperPath = "/home/${username}/wallpapers/kyoto-night.png";
+  wallpaperPath = "/home/${username}/wallpapers/eagle.png";
   
   # Host-specific monitor configurations
   monitorConfigs = {

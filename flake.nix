@@ -15,7 +15,7 @@
       home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [ 
-          ./modules
+          ./home.nix
         ];
         extraSpecialArgs = { 
           inherit inputs hostname username;
