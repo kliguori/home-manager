@@ -11,8 +11,8 @@ let
   monitorConfigs = {
     # Sherlock - Desktop with 2 monitors
     sherlock = [
-      "HDMI-A-2,2560x1440,0x0,1"
-      "HDMI-A-1,2560x1440,2560x0,1"
+      "HDMI-A-1,2560x1440,0x0,1"
+      "HDMI-A-2,2560x1440,2560x0,1"
     ];
     
     # Watson - Laptop with single monitor
@@ -28,15 +28,15 @@ let
   workspaceConfigs = {
     # Sherlock - Split workspaces across 2 monitors
     sherlock = [
-      "1,monitor:HDMI-A-2,default:true"
-      "2,monitor:HDMI-A-2"
-      "3,monitor:HDMI-A-2"
-      "4,monitor:HDMI-A-2"
-      "5,monitor:HDMI-A-1,default:true"
-      "6,monitor:HDMI-A-1"
-      "7,monitor:HDMI-A-1"
-      "8,monitor:HDMI-A-1"
-      "9,monitor:HDMI-A-1"
+      "1,monitor:HDMI-A-1,default:true"
+      "2,monitor:HDMI-A-1"
+      "3,monitor:HDMI-A-1"
+      "4,monitor:HDMI-A-1"
+      "5,monitor:HDMI-A-2,default:true"
+      "6,monitor:HDMI-A-2"
+      "7,monitor:HDMI-A-2"
+      "8,monitor:HDMI-A-2"
+      "9,monitor:HDMI-A-2"
     ];
     
     # Watson - All workspaces on laptop screen
@@ -169,8 +169,6 @@ in
         touchpad.natural_scroll = true;
       };
 
-      gestures.workspace_swipe = false;
-
       "$mainMod" = "SUPER";
 
       bind = [
@@ -239,11 +237,6 @@ in
         ",XF86AudioPause, exec, playerctl play-pause"
         ",XF86AudioPlay, exec, playerctl play-pause"
         ",XF86AudioPrev, exec, playerctl previous"
-      ];
-
-      windowrulev2 = [
-        "suppressevent maximize, class:.*"
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
     };
   };
