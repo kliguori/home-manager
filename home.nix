@@ -1,5 +1,16 @@
 { config, lib, pkgs, hostname, username, ... }:
 {
+  # Import all program modules
+  imports = [
+    ./git.nix
+    ./zsh.nix
+    ./starship.nix
+    ./kitty.nix
+    ./wofi.nix
+    ./hyprland
+    ./waybar
+  ];
+  
   # Theme options and configuration
   options.theme = {
     name = lib.mkOption {
@@ -76,17 +87,6 @@
     home.username = username;
     home.homeDirectory = "/home/${username}";
     home.stateVersion = "25.11";
-
-    # Import all program modules
-    imports = [
-      ./git.nix
-      ./zsh.nix
-      ./starship.nix
-      ./kitty.nix
-      ./wofi.nix
-      ./hyprland
-      ./waybar
-    ];
 
     # Install fonts
     home.packages = with pkgs; [
