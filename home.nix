@@ -37,7 +37,7 @@ let
     curl
     # Language servers and formatters
     nixd
-    nixfmt-rfc-style
+    nixfmt
     pyright
     black
     ruff

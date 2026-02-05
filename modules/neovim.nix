@@ -53,7 +53,7 @@ in
       friendly-snippets
     ];
 
-    extraLuaConfig = ''
+    initLua = ''
       -- Basics
       vim.g.mapleader = " "
       vim.o.number = true
@@ -157,7 +157,7 @@ in
       end
 
       -- Treesitter
-      require("nvim-treesitter.configs").setup {
+      require("nvim-treesitter").setup {
         highlight = { enable = true },
         indent = { enable = true },
       }
