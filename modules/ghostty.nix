@@ -11,6 +11,9 @@ in
     settings = {
       # Auto update 
       auto-update = "off";
+      
+      # Set term 
+      term = "xterm-256color";
 
       # Font configuration
       font-family = "JetBrains Mono";
