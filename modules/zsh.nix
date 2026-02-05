@@ -1,4 +1,8 @@
-{ config, pkgs, hostname, ... }:
+{ config, lib, pkgs, username, hostname, system, ... }:
+let
+  isLinux = lib.hasInfix "linux" system;
+  isDarwin = lib.hasInfix "darwin" system;
+in
 {
   programs.zsh = {
     enable = true;
@@ -31,8 +35,9 @@
       vi = "nvim";
       
       # nixos
-      rebuild-system = "sudo nixos-rebuild switch --flake .#${hostname}";
-      rebuild-home = "home-manager switch --flake .#${hostname}";
+      hms = "home-manager switch --flake ~/home-manager#${hostname}";
+    } // lib.optionalAttrs isLinux {
+      nrs = "sudo nixos-rebuild switch --flake ~/nixos-system#${hostname}";
     };
   };
 }

@@ -24,15 +24,19 @@
   in
   {
     homeConfigurations = {
-      # Sherlock - Desktop with 2 monitors
-      "kevin@sherlock" = mkHome {
+      "macbook" = mkHome {
+        system = "aarch64-darwin";
+        username = "kevinliguori";
+        hostname = "macbook";
+      };
+      
+      "sherlock" = mkHome {
         system = "x86_64-linux";
         username = "kevin";
         hostname = "sherlock";
       };
       
-      # Watson - Laptop with single monitor
-      "kevin@watson" = mkHome {
+      "watson" = mkHome {
         system = "x86_64-linux";
         username = "kevin";
         hostname = "watson";

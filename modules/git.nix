@@ -3,7 +3,7 @@
   programs.git = {
     enable = true;
     settings = {
-      user.name  = "kevinliguori";
+      user.name  = "kevin";
       user.email = "liguori.km@gmail.com";
       init.defaultBranch = "main";
       color.ui = true; 

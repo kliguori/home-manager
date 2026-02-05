@@ -1,7 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, system, ... }:
 let
   c = config.theme.colors;
   f = config.theme.fonts;
+  isDarwin = lib.hasInfix "darwin" system;
 in
 {
   programs.kitty = {
@@ -67,6 +68,12 @@ in
       active_tab_background = c.purple;
       inactive_tab_foreground = c.foreground;
       inactive_tab_background = c.selection;
+
+    } // lib.optionalAttrs isDarwin {
+      macos_option_as_alt = "yes";  # Makes Option key work as Alt for shortcuts
+      macos_quit_when_last_window_closed = "yes";  # Quit when closing last window (Mac convention)
+      macos_traditional_fullscreen = "no";  # Use native macOS fullscreen
+      macos_enable_transparency = "yes";  # Enable transparency/opacity on macOS
     };
   };
 }
