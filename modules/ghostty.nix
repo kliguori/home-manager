@@ -9,13 +9,16 @@ in
     package = pkgs.ghostty-bin;
 
     settings = {
+      # Auto update 
+      auto-update = false;
+
       # Font configuration
       font-family = "JetBrains Mono";
       font-size = 14;
       font-thicken = true;
       
       # Theme and colors
-      theme = "catppuccin-mocha";
+      theme = "dracula";
       background-opacity = 0.95;
       
       # Window appearance (cross-platform)
@@ -28,7 +31,7 @@ in
       cursor-style-blink = false;
       
       # Shell integration
-      shell-integration = true;
+      shell-integration = "detect";
       shell-integration-features = "cursor,sudo,title";
       
       # Keybindings (works on both, but see below)
