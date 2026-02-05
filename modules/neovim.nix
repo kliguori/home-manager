@@ -53,7 +53,7 @@ in
       friendly-snippets
     ];
 
-    initLua = ''
+    extraLuaConfig = ''
       -- Basics
       vim.g.mapleader = " "
       vim.o.number = true
