@@ -24,7 +24,7 @@ let
   darwinModules = [ ];
  
   # Cross-platform packages
-  basePackages = [
+  basePackages = with pkgs; [
     nerd-fonts.jetbrains-mono
     htop
     ripgrep
@@ -47,13 +47,13 @@ let
   ];
   
   # Linux-specific packages
-  linuxPackages = [
+  linuxPackages = with pkgs; [
     wl-clipboard  # Wayland clipboard
     xclip         # X11 clipboard
   ];
   
   # macOS-specific packages
-  darwinPackages = [ ];
+  darwinPackages = with pkgs; [ ];
 in 
  { 
   # Import all program modules
@@ -143,8 +143,7 @@ in
       stateVersion = "25.11";
 
       # Install packages 
-      packages = with pkgs;
-        basePackages
+      packages = basePackages
         ++ (if isLinux then linuxPackages else [])
         ++ (if isDarwin then darwinPackages else []);
 
