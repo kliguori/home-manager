@@ -9,6 +9,7 @@ let
     ./modules/git.nix
     ./modules/zsh.nix
     ./modules/starship.nix
+    ./modules/ghostty.nix
     ./modules/kitty.nix
     ./modules/neovim.nix
   ];
@@ -25,7 +26,6 @@ let
  
   # Cross-platform packages
   basePackages = with pkgs; [
-    ghostty-bin
     spotify
     nerd-fonts.jetbrains-mono
     htop
