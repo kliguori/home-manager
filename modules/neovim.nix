@@ -186,33 +186,55 @@ in
 
       -- LSP with cmp capabilities
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
-
-      -- Nix 
-      lspconfig.nixd.setup {
+      
+      -- Nix
+      vim.lsp.config.nixd = {
+        cmd = { "nixd" },
+        filetypes = { "nix" },
+        root_markers = { "flake.nix", ".git" },
         capabilities = capabilities,
         settings = { nixd = { formatting = { command = { "nixfmt" } } } },
       }
-
-      -- Python 
-      lspconfig.pyright.setup { capabilities = capabilities }
-
-      -- Julia
-      lspconfig.julials.setup { 
+      
+      -- Python
+      vim.lsp.config.pyright = {
+        cmd = { "pyright-langserver", "--stdio" },
+        filetypes = { "python" },
+        root_markers = { "pyproject.toml", "setup.py", ".git" },
         capabilities = capabilities,
+      }
+      
+      -- Julia
+      vim.lsp.config.julials = {
         cmd = { "julia", "--startup-file=no", "--history-file=no", "-e", [[
           using LanguageServer;
           server = LanguageServer.LanguageServerInstance(stdin, stdout, false);
           server.runlinter = true;
           run(server);
-        ]] }
+        ]] },
+        filetypes = { "julia" },
+        root_markers = { "Project.toml", ".git" },
+        capabilities = capabilities,
       }
-
+      
       -- C/C++
-      lspconfig.clangd.setup { capabilities = capabilities }
-
+      vim.lsp.config.clangd = {
+        cmd = { "clangd" },
+        filetypes = { "c", "cpp", "objc", "objcpp" },
+        root_markers = { "compile_commands.json", ".git" },
+        capabilities = capabilities,
+      }
+      
       -- LaTeX
-      lspconfig.texlab.setup { capabilities = capabilities }
+      vim.lsp.config.texlab = {
+        cmd = { "texlab" },
+        filetypes = { "tex", "bib" },
+        root_markers = { ".git" },
+        capabilities = capabilities,
+      }
+      
+      -- Enable LSPs
+      vim.lsp.enable({ "nixd", "pyright", "julials", "clangd", "texlab" })
 
       -- Simple LSP keymaps when a server attaches
       vim.api.nvim_create_autocmd("LspAttach", {

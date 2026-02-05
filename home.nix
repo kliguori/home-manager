@@ -25,6 +25,8 @@ let
  
   # Cross-platform packages
   basePackages = with pkgs; [
+    spotify
+    ghostty-bin
     nerd-fonts.jetbrains-mono
     htop
     ripgrep
