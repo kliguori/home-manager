@@ -10,7 +10,7 @@ in
 
     settings = {
       # Auto update 
-      auto-update = false;
+      auto-update = "off";
 
       # Font configuration
       font-family = "JetBrains Mono";
