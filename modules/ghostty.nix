@@ -6,7 +6,8 @@ in
 {
   programs.ghostty = {
     enable = true;
-    
+    package = pkgs.ghostty-bin;
+
     settings = {
       # Font configuration
       font-family = "JetBrains Mono";
