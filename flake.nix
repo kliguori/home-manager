@@ -18,7 +18,7 @@
           ./home.nix
         ];
         extraSpecialArgs = { 
-          inherit inputs hostname username;
+          inherit inputs hostname username system;
         };
       };
   in

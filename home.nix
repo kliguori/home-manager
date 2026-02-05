@@ -10,6 +10,7 @@ let
     ./modules/zsh.nix
     ./modules/starship.nix
     ./modules/kitty.nix
+    ./modules/neovim.nix
   ];
   
   # Linux-specific modules
